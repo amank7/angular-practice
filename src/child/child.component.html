@@ -1,0 +1,13 @@
+<p #propertyFromChild>
+  child works!
+  {{ dataFromParent }}
+</p>
+<button (click)="dataToParent()">Send Data To Parent</button>
+<h3 [ngClass]="changeNameColor ? 'nameConditional' : 'nameNormal'">
+  To understand ngClass : {{ name }}
+</h3>
+<ng-content></ng-content>
+<input type="text" [(ngModel)]="inputValue" />{{ inputValue }}
+<hr />
+
+<app-child2></app-child2>

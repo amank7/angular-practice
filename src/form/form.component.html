@@ -1,0 +1,81 @@
+<div>
+  <form [formGroup]="signUpForm" (ngSubmit)="formSubmit()" #form>
+    <div class="form-group">
+      <div class="form-control">
+        <label for="name">Name : </label>
+        <input type="text" id="name" formControlName="name" />
+      </div>
+      <!-- <span class="error" *ngIf="User.touched && !User.valid"
+        >Username is required</span
+      > -->
+      <span class="error" *ngIf="User.touched && User.errors?.['required']"
+        >Username is required</span
+      >
+      <span
+        class="error"
+        *ngIf="User.touched && User.errors?.['userNameForbidden']"
+        >Enter a valid username</span
+      >
+      <br />
+
+      <div class="form-control">
+        <label for="email">Email : </label>
+        <input type="email" id="email" formControlName="email" />
+      </div>
+      <span class="error" *ngIf="Email.touched && !Email.valid"
+        >Email is required</span
+      >
+
+      <br />
+
+      <div class="form-control">
+        <label for="contact">Contact : </label>
+        <input type="tel" id="contact" formControlName="contact" />
+      </div>
+      <span class="error" *ngIf="Contact.touched && !Contact.valid"
+        >Contact is required</span
+      >
+
+      <br />
+      <div class="form-group" formGroupName="address">
+        <div class="form-control">
+          <label for="street">Street : </label>
+          <input type="text" id="street" formControlName="street" />
+        </div>
+        <span class="error" *ngIf="Street.touched && !Street.valid"
+          >Enter a valid street address</span
+        >
+        <br />
+
+        <div class="form-control">
+          <label for="city">City : </label>
+          <input type="text" id="city" formControlName="city" />
+        </div>
+        <span class="error" *ngIf="City.touched && !City.valid"
+          >Enter a valid city address</span
+        >
+        <br />
+
+        <div class="form-control">
+          <label for="state">State : </label>
+          <input type="text" id="state" formControlName="state" />
+        </div>
+        <span class="error" *ngIf="State.touched && !State.valid"
+          >Enter a valid State address</span
+        >
+        <br />
+
+        <div class="form-control">
+          <label for="pincode">Pincode : </label>
+          <input type="number" id="pincode" formControlName="pincode" />
+        </div>
+        <span class="error" *ngIf="Pincode.touched && !Pincode.valid"
+          >Enter a valid Pincode</span
+        >
+        <br />
+
+        <button type="submit">Submit Form</button>
+      </div>
+    </div>
+  </form>
+</div>
